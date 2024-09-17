@@ -1,0 +1,99 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 34,
+    "spacing": 4, // Gaps between modules (4px)
+
+	"reload_style_on_change": true,
+
+    // Choose the order of the modules
+    "modules-left": ["wlr/taskbar"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["hyprland/workspaces", "tray", "pulseaudio", "cpu", "memory", "clock"],
+
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 14,
+        "icon-theme": "Flat-Remix-Blue-darkPanel",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+    // Modules configuration
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "on-click": "activate",
+        // "all-outputs": false,
+        // "format": "{name}: {icon}",
+        "format": "{icon}",
+        "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
+        "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
+        "format-icons": {
+            "1": " ",
+            "2": " ",
+            "3": " ",
+            "urgent": " ",
+            "focused": " ",
+            "default": " "
+        }
+    },
+    "hyprland/window": {
+        "max-length": 50,
+        "separate-outputs": true
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 0
+    },
+    "clock": {
+        "format": "{:%H:%M}  ",
+        "format-alt": "{:%a [ %R ] %D}  ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "year",
+            "mode-mon-col"  : 3,
+            "weeks-pos"     : "right",
+            "on-scroll"     : 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false,
+        "on-click": "kitty btop"
+    },
+    "memory": {
+        "format": "{}% "
+    },
+    "pulseaudio": {
+        "scroll-step": 10, // %, can be a float
+        "format": "{volume}%{icon} {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-muted": "󰝟 {format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pwvucontrol"
+    },
+}
