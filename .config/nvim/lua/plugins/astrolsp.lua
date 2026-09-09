@@ -24,7 +24,6 @@ return {
     servers = {
       "zls",
       "m68k",
-      "verible",
     },
     config = {
       -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
@@ -49,15 +48,6 @@ return {
         capabilities = {
           offsetEncoding = "utf-8",
         },
-      },
-      verible = {
-        cmd = {
-          "verible-verilog-ls",
-          "--flagfile=.verible_format",
-          "--rules_config_search",
-          "--lsp_enable_hover",
-        },
-        filetypes = { "verilog", "systemverilog" },
       },
     },
     handlers = {

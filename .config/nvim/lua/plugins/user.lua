@@ -36,6 +36,7 @@ return {
   },
 
   -- Misc
+  { "hudson-trading/slang-server.nvim" },
   { "jannis-baum/vivify.vim" },
   { "ARM9/arm-syntax-vim" },
   {

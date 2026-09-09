@@ -1,7 +1,6 @@
 local ls = require "luasnip"
 local t = ls.text_node
 local i = ls.insert_node
-local f = ls.function_node
 local d = ls.dynamic_node
 local sn = ls.snippet_node
 
@@ -153,3 +152,5 @@ ls.add_snippets("all", {
     d(1, lgpl_header, {}),
   }),
 })
+
+vim.lsp.log.set_level(vim.log.levels.ERROR)
